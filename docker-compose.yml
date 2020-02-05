@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:12.1-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: test
+    volumes:
+      - ./pgsql-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
